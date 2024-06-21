@@ -3,33 +3,26 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  const handelIncrement = () => setCount(count + 1);
+  const handelDecrement = () => setCount(count - 1);
 
   return (
-    <>
+    <div className="d-flex jutify-content-center align-items-center">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className="text-center" style={{ fontSize: "70px" }}>
+          {count}
+        </h1>
+        <div className="d-flex">
+          <button onClick={handelIncrement} className="btn btn-success me-3">
+            Increment
+          </button>
+          <button onClick={handelDecrement} className="btn btn-danger ms-3">
+            Decrement
+          </button>
+        </div>
       </div>
-      <h1>Github new project and i am not a devi ok</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
